@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Future Flood</title>
+    <style>
+        /* Базовые стили в стиле Киберпанк */
+        body {
+            background-color: #05050a;
+            color: #e0e0fc;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Шапка сайта */
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 40px 0 20px 0;
+            background: linear-gradient(180deg, #0f0c20 0%, #05050a 100%);
+            border-bottom: 2px solid #6c5ce7;
+            box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #a29bfe;
+            text-shadow: 0 0 10px #6c5ce7, 0 0 30px #6c5ce7;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            color: #00ffcc;
+            font-family: monospace;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px #00ffcc;
+        }
+
+        /* Навигация (4 сверху, 3 снизу) */
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin: 30px 0;
+            width: 95%;
+            max-width: 850px;
+        }
+
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+        }
+
+        /* Первая строчка (4 кнопки) */
+        .row-1 .nav-btn {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        /* Вторая строчка (3 кнопки) */
+        .row-2 .nav-btn {
+            flex: 1;
+            max-width: 230px;
+        }
+
+        .nav-btn {
+            background: #111025;
+            border: 1px solid #6c5ce7;
+            color: #a29bfe;
+            padding: 12px 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-btn:hover {
+            background: #6c5ce7;
+            color: #ffffff;
+            box-shadow: 0 0 15px #6c5ce7;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: #6c5ce7 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 20px #6c5ce7;
+            border-color: #00ffcc;
+        }
+
+        /* Контейнер для контента */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #0d0c1d;
+            border: 1px solid #1a1835;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
+        }
+
+        /* Скрытие неактивных вкладок */
+        .tab-content {
+display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Внутренние мини-вкладки для Правил */
+        .sub-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #1a1835;
+            padding-bottom: 15px;
+        }
+
+        .sub-btn {
+            background: #080714;
+            border: 1px solid #ff007f;
+            color: #ff007f;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .sub-btn:hover {
+            background: #ff007f;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px #ff007f;
+        }
+
+        .sub-btn.active {
+            background: #ff007f !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px #ff007f;
+        }
+
+        /* Стили внутренних вкладок правил */
+        .rules-content {
+            display: none;
+            background: #080714;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #00ffcc;
+        }
+
+        .rules-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Оформление пунктов правил */
+        .rule-item {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .rule-num {
+            color: #00ffcc;
+            font-weight: bold;
+            font-family: monospace;
+            margin-right: 8px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Стили текста */
+        h2 {
+            color: #00ffcc;
+            border-bottom: 1px solid #1a1835;
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+
+        /* Карточки админов */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #15132e;
+            border: 1px solid #6c5ce7;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+            border-color: #00ffcc;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        .card p {
+            margin: 0;
+            color: #00ffcc;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Розыгрыш шанса на Главной */
+        .chance-box {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #080711;
+            border-radius: 8px;
+            border: 1px dashed #6c5ce7;
+        }
+
+        .btn-chance {
+            background: transparent;
+            border: 2px solid #00ffcc;
+            color: #00ffcc;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn-chance:hover {
+            background: #00ffcc;
+            color: #05050a;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+
+        #chance-result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Кнопка перехода в ТТ */
+        .tt-link {
+            display: inline-block;
+            margin-top: 20px;
+            background: #ff007f;
+            color: #fff;
+            text-dec
+oration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px #ff007f;
+            transition: 0.3s;
+        }
+
+        .tt-link:hover {
+            background: #00ffcc;
+            color: #000;
+            box-shadow: 0 0 25px #00ffcc;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dark Future Flood</h1>
+        <p>[ СИСТЕМА АКТИВИРОВАНА. ДОБРО ПОЖАЛОВАТЬ В БУДУЩЕЕ ]</p>
+    </header>
+
+    <!-- Разделенная навигация (Строго 4 сверху, 3 снизу) -->
+    <nav>
+        <div class="nav-row row-1">
+            <button id="btn-home" class="nav-btn active" data-target="home">Главная</button>
+            <button id="btn-rules" class="nav-btn" data-target="rules">Правила</button>
+            <button id="btn-staff" class="nav-btn" data-target="staff">Администрация</button>
+            <button id="btn-roles" class="nav-btn" data-target="roles">Роли</button>
+        </div>
+        <div class="nav-row row-2">
+            <button id="btn-about" class="nav-btn" data-target="about">Знакомство</button>
+            <button id="btn-tiktok" class="nav-btn" data-target="tiktok">TikTok</button>
+            <button id="btn-guide" class="nav-btn" data-target="guide">Вступление</button>
+        </div>
+    </nav>
+
+    <!-- Основной контейнер с контентом -->
+    <div class="container">
+
+        <!-- ВКЛАДКА 1: ГЛАВНАЯ -->
+        <div id="home" class="tab-content active">
+            <h2>О нас</h2>
+            <p>Добро пожаловать в <strong>Dark Future Flood</strong> — самое атмосферное и неоновое кибер-пространство для общения, где обитают только свои.</p>
+            <p>Здесь мы общаемся, угараем, делимся мемами и строим планы по захвату виртуального мира.</p>
+            
+            <div class="chance-box">
+                <p style="margin-top: 0;">Узнай свой шанс попасть в элиту DFF:</p>
+                <button class="btn-chance" onclick="getChance()">Пройти тест</button>
+                <div id="chance-result"></div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 2: ПРАВИЛА -->
+        <div id="rules" class="tab-content">
+            <h2>Протоколы безопасности (Правила)</h2>
+            <p>Выбери сектор правил для ознакомления:</p>
+            
+            <div class="sub-nav">
+                <button id="sub-btn-conflicts" class="sub-btn active" data-subtarget="rules-conflicts">1. Конфликты</button>
+                <button id="sub-btn-spam" class="sub-btn" data-subtarget="rules-spam">2. Спам & 18+</button>
+                <button id="sub-btn-activity" class="sub-btn" data-subtarget="rules-activity">3. Ресты & Активность</button>
+                <button id="sub-btn-behavior" class="sub-btn" data-subtarget="rules-behavior">4. Поведение</button>
+            </div>
+
+            <!-- Раздел 1. Конфликты -->
+            <div id="rules-conflicts" class="rules-content active">
+                <div class="rule-item">
+                    <span class="rule-num">1.1.</span> Запрещено провоцировать конфликты и проявлять личную неприязнь.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">1.2.</span> В случае конфликта обращайтесь к администрации.
+                </div>
+            </div>
+
+            <!-- Раздел 2. Спам и Ссылки -->
+            <div id="rules-spam" class="rules-content">
+                <div class="rule-item">
+                    <span class="rule-num">2.1.</span> Спам запрещен (подробнее в правилах чата).
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">2.2.</span> Материалы 18+ запрещены. <strong>Наказание: бан</strong>.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">2.3.</span> Вызовы без уважительной причины запрещены.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">2.4.</span> Запрещены теги, упоминания посторонних флуд
+ов, ссылки на посторонние сайты и добавление ботов-варн.
+                </div>
+            </div>
+
+            <!-- Раздел 3. Ресты и активность -->
+            <div id="rules-activity" class="rules-content">
+                <div class="rule-item">
+                    <span class="rule-num">3.1.</span> Рест оформляется через администрацию, срок — до 2 недель.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">3.2.</span> Рест возможен с субботы до среды.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">3.3.</span> Норма — 130 сообщений в неделю. Неактив 7 дней — <strong>бан</strong>.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">3.4.</span> Чистка проводится по субботам в 22:00 по КЗ.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">3.5.</span> Чистку проводит владелец (ВЛД).
+                </div>
+            </div>
+
+            <!-- Раздел 4. Поведение в чате -->
+            <div id="rules-behavior" class="rules-content">
+                <div class="rule-item">
+                    <span class="rule-num">4.1.</span> Оскорбления, неприятные шутки и насмешки, касающиеся семьи и социального статуса, запрещены. <strong>Наказание: предупреждение или бан</strong>.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">4.2.</span> Реклама ролевых и флудовых чатов запрещена. <strong>Наказание: бан</strong>.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">4.3.</span> Добавление ботов или пользователей без разрешения владельца запрещено. <strong>Наказание: бан</strong>.
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">4.4.</span> Обсуждение религии разрешено только в уважительном формате.
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 3: АДМИНИСТРАЦИЯ -->
+        <div id="staff" class="tab-content">
+            <h2>Администрация DFF</h2>
+            <p>Правящий сектор нашей неоновой империи:</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Марк</h3>
+                    <p>[ Создатель / Шеф ]</p>
+                </div>
+                <div class="card">
+                    <h3>Бро #1</h3>
+                    <p>[ Зам. Создателя ]</p>
+                </div>
+                <div class="card">
+                    <h3>Бро #2</h3>
+                    <p>[ Модератор ]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 4: РОЛИ -->
+        <div id="roles" class="tab-content">
+            <h2>Иерархия Системы (Роли)</h2>
+            <p>Каждый юзер имеет свое значение в коде DFF. Вот основные роли:</p>
+            <ul>
+                <li><strong>System Creator</strong> — бог этой системы (Марк).</li>
+                <li><strong>Admin</strong> — карающая рука правосудия.</li>
+                <li><strong>Cyber Elite</strong> — самые активные и авторитетные челы чата.</li>
+                <li><strong>User</strong> — базовая единица общения.</li>
+            </ul>
+        </div>
+
+        <!-- ВКЛАДКА 5: ЗНАКОМСТВО -->
+        <div id="about" class="tab-content">
+            <h2>Протокол Знакомства</h2>
+            <p>Залетел в хату — представься системе. Напиши в чат:</p>
+            <ul>
+                <li>Как тебя звать в реальной матрице?</li>
+                <li>Твой возраст (только без пиздежа).</li>
+                <li>Твои увлечения (аниме, игры, кодинг, чил).</li>
+            </ul>
+            <p>После этого админы выдадут тебе стартовый допуск к обсуждениям!</p>
+        </div>
+
+        <!-- ВКЛАДКА 6: TIKTOK -->
+        <div id="tiktok" class="tab-content" style="text-align: center;">
+            <h2>DFF на просторах сети</h2>
+            <p>Наш официальный ТикТок аккаунт с нарезками, мем-активностями и лучшими моментам
+и из флуда:</p>
+            <a href="https://tiktok.com" target="_blank" class="tt-link">Открыть TikTok Аккаунт</a>
+        </div>
+
+        <!-- ВКЛАДКА 7: ИНСТРУКЦИЯ ДЛЯ ВСТУПЛЕНИЯ -->
+        <div id="guide" class="tab-content">
+            <h2>Инструкция по интеграции во флуд</h2>
+            <p>Как быстро стать полноценным жителем Dark Future Flood:</p>
+            <ol style="line-height: 1.8;">
+                <li>Перейди по ссылке-приглашению (будет добавлена позже).</li>
+                <li>Пройди верификацию у бота, если она включена.</li>
+                <li>Заполни анкету во вкладке "Знакомство".</li>
+                <li>Начни общаться, соблюдая правила. Заслужи уважение, чтобы повысить свой status до Элиты!</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. Главные вкладки
+            const mainButtons = document.querySelectorAll(".nav-btn");
+            mainButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    mainButtons.forEach(btn => btn.classList.remove("active"));
+                    document.querySelectorAll(".tab-content").forEach(content => {
+                        content.classList.remove("active");
+                    });
+
+                    this.classList.add("active");
+                    const targetId = this.getAttribute("data-target");
+                    document.getElementById(targetId).classList.add("active");
+                });
+            });
+
+            // 2. Внутренние мини-вкладки
+            const subButtons = document.querySelectorAll(".sub-btn");
+            subButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    subButtons.forEach(btn => btn.classList.remove("active"));
+                    document.querySelectorAll(".rules-content").forEach(content => {
+                        content.classList.remove("active");
+                    });
+
+                    this.classList.add("active");
+                    const targetId = this.getAttribute("data-subtarget");
+                    document.getElementById(targetId).classList.add("active");
+                });
+            });
+
+        });
+
+        // Логика кнопки шанса
+        function getChance() {
+            const result = document.getElementById('chance-result');
+            result.style.color = '#a29bfe';
+            result.innerHTML = "Подключение к базе данных...";
+
+            setTimeout(() => {
+                const isElite = Math.random() < 0.15;
+                if (isElite) {
+                    result.style.color = '#00ffcc';
+                    result.innerHTML = "ВНИМАНИЕ! Твой шанс попасть в DFF: 0.0000001%. Ты абсолютный Гигачад!";
+                } else {
+                    result.style.color = '#ff4d4d';
+                    result.innerHTML = "Твой шанс попасть во флуд: 99.9%. Обычный нищий ноунейм.";
+                }
+            }, 800);
+        }
+    </script>
+
+</body>
+</html>
