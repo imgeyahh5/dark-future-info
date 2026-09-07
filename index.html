@@ -127,19 +127,18 @@
 
         /* Внутренние мини-вкладки для Правил */
         .sub-nav {
-            display:
-flex;
+            display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 25px;
+margin-bottom: 25px;
             border-bottom: 1px solid #1a1835;
             padding-bottom: 15px;
         }
 
         .sub-btn {
-            background: #080714;
-            border: 1px solid #ff007f;
-            color: #ff007f;
+            background: #080714 !important;
+            border: 1px solid #ff007f !important;
+            color: #ff007f !important;
             padding: 10px 20px;
             font-size: 0.9rem;
             font-weight: bold;
@@ -151,8 +150,9 @@ flex;
             text-align: center;
         }
 
+        /* Фиксим баг с белым фоном и цветом текста */
         .sub-btn:hover {
-            background: #ff007f;
+            background: #ff007f !important;
             color: #ffffff !important;
             box-shadow: 0 0 15px #ff007f;
         }
@@ -219,7 +219,7 @@ flex;
             padding: 25px 20px;
             text-align: center;
             transition: 0.3s ease-in-out;
-            text-decoration: none; /* Убираем подчеркивание ссылки */
+            text-decoration: none;
             display: block;
         }
 
@@ -284,8 +284,8 @@ flex;
 
         .owner-card .card-btn {
             border-color: #00ffcc;
-            color: #00ffcc
-;
+            color: #00f
+fcc;
         }
 
         .owner-card:hover .card-btn {
@@ -407,8 +407,8 @@ flex;
             <div class="sub-nav">
                 <button id="sub-btn-conflicts" class="sub-btn active" data-subtarget="rules-conflicts">1. Конфликты</button>
                 <button id="sub-btn-spam" class="sub-btn" data-subtarget="rules-spam">2. Спам & 18+</button>
-                <button id="sub-btn-activity" cla
-ss="sub-btn" data-subtarget="rules-activity">3. Ресты & Активность</button>
+                <button id="sub-btn-activity"
+class="sub-btn" data-subtarget="rules-activity">3. Ресты & Активность</button>
                 <button id="sub-btn-behavior" class="sub-btn" data-subtarget="rules-behavior">4. Поведение</button>
             </div>
 
@@ -474,7 +474,7 @@ ss="sub-btn" data-subtarget="rules-activity">3. Ресты & Активност�
             </div>
         </div>
 
-        <!-- ВКЛАДКА 3: АДМИНИСТРАЦИЯ (ОБНОВЛЕНА И ПОДКЛЮЧЕНА К ТЕЛЕГРАМУ!) -->
+        <!-- ВКЛАДКА 3: АДМИНИСТРАЦИЯ -->
         <div id="staff" class="tab-content">
             <h2>Администрация DFF</h2>
             <p>Высший сектор управления. Кликни на карточку, чтобы связаться с админом в TG:</p>
@@ -487,8 +487,9 @@ ss="sub-btn" data-subtarget="rules-activity">3. Ресты & Активност�
                     <span class="card-btn">Написать</span>
                 </a>
 
-<!-- Совладелец 1 -->
-                <a href="https://t.me/sosi_yb" target="_blank" class="card co-card">
+                <!-- Совладелец 1 -->
+
+<a href="https://t.me/sosi_yb" target="_blank" class="card co-card">
                     <h3>@sosi_yb</h3>
                     <p>[ СОВ.ВЛАДЕЛЕЦ ]</p>
                     <span class="card-btn">Написать</span>
@@ -577,10 +578,10 @@ ss="sub-btn" data-subtarget="rules-activity">3. Ресты & Активност�
             const subButtons = document.querySelectorAll(".sub-btn");
             subButtons.forEach(button => {
                 button.addEventListener("click", function() {
-                    subButtons.forEach(btn => btn.classList.remove("active"))
+                    subButtons.forEach(btn => btn.classList.remove("active"));
+                    document.quer
 
-;
-                    document.querySelectorAll(".rules-content").forEach(content => {
+ySelectorAll(".rules-content").forEach(content => {
                         content.classList.remove("active");
                     });
 
