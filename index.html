@@ -123,8 +123,7 @@
             animation: fadeIn 0.4s ease;
         }
 
-        /* Sub-naviga
-tion for Rules */
+        /* Sub-navigation for Rules */
         .sub-nav {
             display: flex;
             flex-wrap: wrap;
@@ -136,7 +135,8 @@ tion for Rules */
 
         .sub-btn {
             background: #080714 !important;
-            border: 1px solid #ff007f !important;
+            border: 1px solid #ff007f
+!important;
             color: #ff007f !important;
             padding: 10px 20px;
             font-size: 0.9rem;
@@ -194,6 +194,40 @@ tion for Rules */
             margin-top: 0;
             text-transform: uppercase;
             font-size: 1.8rem;
+        }
+
+        /* Стили для текстов Знакомства */
+        .bio-section {
+            margin-top: 25px;
+        }
+
+        .bio-block {
+            background: #111025;
+            border-left: 3px solid #6c5ce7;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.6;
+        }
+
+        .bio-block.owner-bio {
+            border-left-color: #00ffcc;
+            background: rgba(0, 255, 204, 0.02);
+        }
+
+        .bio-block h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .owner-bio h3 {
+            color: #00ffcc;
+        }
+
+        .co-bio h3 {
+            color: #ff007f;
         }
 
         /* Таблица ролей */
@@ -264,7 +298,7 @@ tion for Rules */
         }
 
         .owner-card {
-            border: 2px solid #00ffcc;
+border: 2px solid #00ffcc;
             box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
         }
 
@@ -280,7 +314,7 @@ tion for Rules */
         }
 
         .co-card:hover {
-transform: translateY(-5px);
+            transform: translateY(-5px);
             box-shadow: 0 5px 20px rgba(108, 92, 231, 0.5);
             border-color: #ff007f;
         }
@@ -413,7 +447,8 @@ transform: translateY(-5px);
             <button id="btn-roles" class="nav-btn" onclick="switchMainTab('roles', 'btn-roles')">Роли</button>
         </div>
         <div class="nav-row row-2">
-            <button id="btn-about" class="nav-btn" onclick="switchMainTab('about', 'btn-about')">Знакомство</button>
+            <button id="btn-about" class="nav-btn" onclick="switchMainTab('about', 'btn-ab
+out')">Знакомство</button>
             <button id="btn-tiktok" class="nav-btn" onclick="switchMainTab('tiktok', 'btn-tiktok')">TikTok</button>
             <button id="btn-guide" class="nav-btn" onclick="switchMainTab('guide', 'btn-guide')">Вступление</button>
         </div>
@@ -422,9 +457,8 @@ transform: translateY(-5px);
     <!-- Main Container -->
     <div class="container">
 
-        <!-- TAB 1: HOME (Отображается при старте через JS) -->
-        <div id="home"
-class="tab-content">
+        <!-- TAB 1: HOME -->
+        <div id="home" class="tab-content">
             <h2>О нас</h2>
             <p>Добро пожаловать в <strong>Dark Future Flood</strong> — самое атмосферное и неоновое кибер-пространство для общения, где обитают только свои.</p>
             <p>Здесь мы общаемся, угараем, делимся мемами и строим планы по захвату виртуального мира.</p>
@@ -492,11 +526,11 @@ class="tab-content">
 
             <div id="rules-behavior" class="rules-content">
                 <div class="rule-item">
-                    <span class="rule-num">4.1.</span> Оскорбления, неприятные шутки и насмешки, касающиеся семьи и социального статуса, запрещены. <strong>Наказание: предупреждение или бан</strong>.
+<span class="rule-num">4.1.</span> Оскорбления, неприятные шутки и насмешки, касающиеся семьи и социального статуса, запрещены. <strong>Наказание: предупреждение или бан</strong>.
                 </div>
                 <div class="rule-item">
                     <span class="rule-num">4.2.</span> Реклама ролевых и флудовых чатов запрещена. <strong>Наказание: бан</strong>.
-</div>
+                </div>
                 <div class="rule-item">
                     <span class="rule-num">4.3.</span> Добавление ботов или пользователей без разрешения владельца запрещено. <strong>Наказание: бан</strong>.
                 </div>
@@ -538,7 +572,7 @@ class="tab-content">
             </div>
         </div>
 
-        <!-- TAB 4: ROLES (ЗАНЯТЫЕ ВНЕШНОСТИ) -->
+        <!-- TAB 4: ROLES -->
         <div id="roles" class="tab-content">
             <h2>Занятые внешности</h2>
             <p>Список персонажей, которые уже забронированы участниками флуда:</p>
@@ -585,7 +619,9 @@ class="tab-content">
                     </tr>
                     <tr>
                         <td><span>Сервамп</span></td>
-                        <td><strong>Хайд</strong></td>
+                        <td><stron
+
+g>Хайд</strong></td>
                     </tr>
                     <tr>
                         <td><span>Темный дворецкий</span></td>
@@ -594,8 +630,7 @@ class="tab-content">
                     <tr>
                         <td><span>Звёздное дитя</span></td>
                         <td><strong>Хошино Ай</strong></td>
-
-</tr>
+                    </tr>
                     <tr>
                         <td><span>Шампанское и розы</span></td>
                         <td><strong>Цезарь</strong></td>
@@ -624,16 +659,36 @@ class="tab-content">
             </table>
         </div>
 
-        <!-- TAB 5: ABOUT -->
+        <!-- TAB 5: ABOUT (ЗНАКОМСТВО С АДМИНАМИ) -->
         <div id="about" class="tab-content">
-            <h2>Протокол Знакомства</h2>
-            <p>Залетел в хату — представься системе. Напиши в чат:</p>
-            <ul>
-                <li>Как тебя звать в реальной матрице?</li>
-                <li>Твой возраст (только без пиздежа).</li>
-                <li>Твои увлечения (аниме, игры, кодинг, чил).</li>
-            </ul>
-            <p>После этого админы выдадут тебе стартовый допуск к обсуждениям!</p>
+            <h2>Знакомство с Администрацией</h2>
+            <p>Пару слов о нашей команде управляющих без лишней мишуры:</p>
+            
+            <div class="bio-section">
+                <!-- Марин -->
+                <div class="bio-block owner-bio">
+                    <h3>Владелец: Марин</h3>
+                    <p>Не знаю, как я выгляжу со стороны, так что не буду комментировать 💋🐾</p>
+                </div>
+
+                <!-- Леви -->
+                <div class="bio-block co-bio">
+                    <h3>Совладелец: Леви</h3>
+                    <p>Несмотря на юз, этот сов.влд очень приятный, подстраивается под каждого участника и очень комфортный. Не переходит границы, очень старается для нашего флуда и очень ждёт ньюшек 💋🐾</p>
+                </div>
+
+                <!-- Денджи -->
+                <div class="bio-block co-bio">
+                    <h3>Совладелец: Денджи</h3>
+                    <p>Это очень приятная девушка. Расскажу о ней вкратце: очень понимающая, любящая и искренняя. Тоже знает границы и не перейдет их. Она тоже очень комфортная, прям мили-мили ❤️🐾</p>
+                </div>
+
+                <!-- Ай -->
+                <div class="bio-block co-bio">
+                    <h3>Совладелец: Ай</h3>
+                    <p>Ну хорошая, добрая, понимающая, преданная своему мужу, уж поверьте. Приятная девушка в общем 💋🐾 (да не удивляйтесь, у нас 3 сов.влд)</p>
+                </div>
+            </div>
         </div>
 
         <!-- TAB 6: TIKTOK -->
@@ -650,14 +705,13 @@ class="tab-content">
             <ol style="line-height: 1.8;">
                 <li>Перейди по ссылке-приглашению (будет добавлена позже).</li>
                 <li>Пройди верификацию у бота, если она включена.</li>
-                <li>Заполни анкету во вкладке "Знакомство".</li>
+                <li>Заполни анкету в чате по схеме знакомства.</li>
                 <li>Начни общаться, соблюдая правила. Заслужи уважение, чтобы повысить свой status до Элиты!</li>
             </ol>
         </div>
 
     </div>
-
-    <script>
+<script>
         // Функция полной инициализации скрипта
         window.addEventListener('DOMContentLoaded', (event) => {
             // Принудительно запускаем Главную при старте
@@ -667,30 +721,24 @@ class="tab-content">
 
         // ЖЕЛЕЗОБЕТОННЫЙ ПЕРЕКЛЮЧАТЕЛЬ СТИЛЕЙ И КЛАССОВ
         function switchMainTab(targetTabId, clickedButtonId) {
-            // 1. Находим вообще все вкладки контента
             var contents = document.getElementsByClassName('tab-content');
-            
-            // Скрываем их через прямой стиль display = 'none'
             for (var i = 0; i < contents.length; i++) {
                 contents[i].style.display = 'none';
                 contents[i].classList.remove('tab-fade-in');
             }
 
-            // 2. Снимаем класс 'active' со всех кнопок меню
             var buttons = document.getElementsByClassName('nav-btn');
             for (var j = 0; j < buttons.length; j++) {
                 buttons[j].classList.remove('active');
             }
 
-            // 3. Показываем нужный блок контента напрямую через display = 'block'
             var targetTab = document.getElementById(targetTabId);
             if (targetTab) {
                 targetTab.style.display = 'block';
                 targetTab.classList.add('tab-fade-in');
             }
 
-            // 4. Подсвечиваем кликнутую кнопку
-var targetBtn = document.getElementById(clickedButtonId);
+            var targetBtn = document.getElementById(clickedButtonId);
             if (targetBtn) {
                 targetBtn.classList.add('active');
             }
