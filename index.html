@@ -113,16 +113,18 @@
             margin-bottom: 50px;
         }
 
+        /* Вкладки по умолчанию скрыты в CSS */
         .tab-content {
             display: none;
         }
 
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
+        /* Анимация появления */
+        .tab-fade-in {
+            animation: fadeIn 0.4s ease;
         }
 
-        /* Sub-navigation for Rules */
+        /* Sub-naviga
+tion for Rules */
         .sub-nav {
             display: flex;
             flex-wrap: wrap;
@@ -138,8 +140,7 @@
             color: #ff007f !important;
             padding: 10px 20px;
             font-size: 0.9rem;
-            font-weigh
-t: bold;
+            font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -160,17 +161,13 @@ t: bold;
             box-shadow: 0 0 15px #ff007f;
         }
 
+        /* Внутренние правила скрыты по умолчанию */
         .rules-content {
             display: none;
             background: #080714;
             padding: 20px;
             border-radius: 6px;
             border-left: 3px solid #00ffcc;
-        }
-
-        .rules-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
         }
 
         .rule-item {
@@ -283,7 +280,7 @@ t: bold;
         }
 
         .co-card:hover {
-            transform: translateY(-5px);
+transform: translateY(-5px);
             box-shadow: 0 5px 20px rgba(108, 92, 231, 0.5);
             border-color: #ff007f;
         }
@@ -301,7 +298,8 @@ t: bold;
         .co-card h3 {
             color: #fff;
         }
-.card p {
+
+        .card p {
             margin: 0 0 15px 0;
             color: #a29bfe;
             font-family: monospace;
@@ -409,7 +407,7 @@ t: bold;
     <!-- Navigation -->
     <nav>
         <div class="nav-row row-1">
-            <button id="btn-home" class="nav-btn active" onclick="switchMainTab('home', 'btn-home')">Главная</button>
+            <button id="btn-home" class="nav-btn" onclick="switchMainTab('home', 'btn-home')">Главная</button>
             <button id="btn-rules" class="nav-btn" onclick="switchMainTab('rules', 'btn-rules')">Правила</button>
             <button id="btn-staff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Администрация</button>
             <button id="btn-roles" class="nav-btn" onclick="switchMainTab('roles', 'btn-roles')">Роли</button>
@@ -424,15 +422,15 @@ t: bold;
     <!-- Main Container -->
     <div class="container">
 
-        <!-- TAB 1: HOME -->
-        <div id="home" class="tab-content active">
+        <!-- TAB 1: HOME (Отображается при старте через JS) -->
+        <div id="home"
+class="tab-content">
             <h2>О нас</h2>
             <p>Добро пожаловать в <strong>Dark Future Flood</strong> — самое атмосферное и неоновое кибер-пространство для общения, где обитают только свои.</p>
             <p>Здесь мы общаемся, угараем, делимся мемами и строим планы по захвату виртуального мира.</p>
             
             <div class="chance-box">
-                <p style="margin-top: 0;">Узнай свой шанс попасть в элит
-у DFF:</p>
+                <p style="margin-top: 0;">Узнай свой шанс попасть в элиту DFF:</p>
                 <button class="btn-chance" onclick="getChance()">Пройти тест</button>
                 <div id="chance-result"></div>
             </div>
@@ -444,13 +442,13 @@ t: bold;
             <p>Выбери сектор правил для ознакомления:</p>
             
             <div class="sub-nav">
-                <button id="sub-btn-conflicts" class="sub-btn active" onclick="switchSubTab('rules-conflicts', 'sub-btn-conflicts')">1. Конфликты</button>
+                <button id="sub-btn-conflicts" class="sub-btn" onclick="switchSubTab('rules-conflicts', 'sub-btn-conflicts')">1. Конфликты</button>
                 <button id="sub-btn-spam" class="sub-btn" onclick="switchSubTab('rules-spam', 'sub-btn-spam')">2. Спам & 18+</button>
                 <button id="sub-btn-activity" class="sub-btn" onclick="switchSubTab('rules-activity', 'sub-btn-activity')">3. Ресты & Активность</button>
                 <button id="sub-btn-behavior" class="sub-btn" onclick="switchSubTab('rules-behavior', 'sub-btn-behavior')">4. Поведение</button>
             </div>
 
-            <div id="rules-conflicts" class="rules-content active">
+            <div id="rules-conflicts" class="rules-content">
                 <div class="rule-item">
                     <span class="rule-num">1.1.</span> Запрещено провоцировать конфликты и проявлять личную неприязнь.
                 </div>
@@ -498,15 +496,14 @@ t: bold;
                 </div>
                 <div class="rule-item">
                     <span class="rule-num">4.2.</span> Реклама ролевых и флудовых чатов запрещена. <strong>Наказание: бан</strong>.
-                </div>
+</div>
                 <div class="rule-item">
                     <span class="rule-num">4.3.</span> Добавление ботов или пользователей без разрешения владельца запрещено. <strong>Наказание: бан</strong>.
                 </div>
                 <div class="rule-item">
                     <span class="rule-num">4.4.</span> Обсуждение религии разрешено только в уважительном формате.
                 </div>
-            <
-/div>
+            </div>
         </div>
 
         <!-- TAB 3: STAFF -->
@@ -541,7 +538,7 @@ t: bold;
             </div>
         </div>
 
-        <!-- TAB 4: ROLES (ЗАНЯТЫЕ ВНЕШНОСТИ/ПЕРСОНАЖИ) -->
+        <!-- TAB 4: ROLES (ЗАНЯТЫЕ ВНЕШНОСТИ) -->
         <div id="roles" class="tab-content">
             <h2>Занятые внешности</h2>
             <p>Список персонажей, которые уже забронированы участниками флуда:</p>
@@ -554,7 +551,6 @@ t: bold;
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Твоя роль -->
                     <tr class="owner-row">
                         <td><span>The Coffin of Andy and Leyley</span></td>
                         <td><strong>Эндрю [Маркетолог]</strong></td>
@@ -598,7 +594,8 @@ t: bold;
                     <tr>
                         <td><span>Звёздное дитя</span></td>
                         <td><strong>Хошино Ай</strong></td>
-                    </tr>
+
+</tr>
                     <tr>
                         <td><span>Шампанское и розы</span></td>
                         <td><strong>Цезарь</strong></td>
@@ -607,8 +604,7 @@ t: bold;
                         <td><span>Блич</span></td>
                         <td><strong>Орихимэ</strong></td>
                     </tr>
-
-<tr>
+                    <tr>
                         <td><span>Президенты</span></td>
                         <td><strong>Владимир Зеленский</strong></td>
                     </tr>
@@ -662,49 +658,72 @@ t: bold;
     </div>
 
     <script>
-        // ЖЕЛЕЗОБЕТОННЫЙ СКРИПТ ПЕРЕКЛЮЧЕНИЯ
+        // Функция полной инициализации скрипта
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Принудительно запускаем Главную при старте
+            switchMainTab('home', 'btn-home');
+            switchSubTab('rules-conflicts', 'sub-btn-conflicts');
+        });
+
+        // ЖЕЛЕЗОБЕТОННЫЙ ПЕРЕКЛЮЧАТЕЛЬ СТИЛЕЙ И КЛАССОВ
         function switchMainTab(targetTabId, clickedButtonId) {
-            // Скрываем вообще все вкладки
+            // 1. Находим вообще все вкладки контента
             var contents = document.getElementsByClassName('tab-content');
+            
+            // Скрываем их через прямой стиль display = 'none'
             for (var i = 0; i < contents.length; i++) {
-                contents[i].classList.remove('active');
+                contents[i].style.display = 'none';
+                contents[i].classList.remove('tab-fade-in');
             }
 
-            // Убираем active у всех кнопок навигации
+            // 2. Снимаем класс 'active' со всех кнопок меню
             var buttons = document.getElementsByClassName('nav-btn');
             for (var j = 0; j < buttons.length; j++) {
                 buttons[j].classList.remove('active');
             }
 
-            // Активируем нужную вкладку и кнопку
-            document.getElementById(targetTabId).classList.add('active');
-            document.getElementById(clickedButtonId).classList.add('active');
-        }
-
-        function switchSubTab(targetSubId, clickedSubButtonId) {
-            // Скрываем все внутренние вкладки правил
-            var rulesContents = document.getElementsByClassName('rules-content');
-            for (var k = 0; k < rulesContents.length; k++) {
-                rulesContents[k].classList.remove('active');
+            // 3. Показываем нужный блок контента напрямую через display = 'block'
+            var targetTab = document.getElementById(targetTabId);
+            if (targetTab) {
+                targetTab.style.display = 'block';
+                targetTab.classList.add('tab-fade-in');
             }
 
-            // Убираем active у подкнопок
+            // 4. Подсвечиваем кликнутую кнопку
+var targetBtn = document.getElementById(clickedButtonId);
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+            }
+        }
+
+        // Переключение подвкладок внутри Правил
+        function switchSubTab(targetSubId, clickedSubButtonId) {
+            var rulesContents = document.getElementsByClassName('rules-content');
+            for (var k = 0; k < rulesContents.length; k++) {
+                rulesContents[k].style.display = 'none';
+            }
+
             var subButtons = document.getElementsByClassName('sub-btn');
             for (var l = 0; l < subButtons.length; l++) {
                 subButtons[l].classList.remove('active');
             }
 
-            // Включаем нужные правила
-            document.getElementById(targetSubId).classList.add('active');
-            document.getElementById(clickedSubButtonId).classList.add('active');
+            var targetSub = document.getElementById(targetSubId);
+            if (targetSub) {
+                targetSub.style.display = 'block';
+            }
+
+            var targetSubBtn = document.getElementById(clickedSubButtonId);
+            if (targetSubBtn) {
+                targetSubBtn.classList.add('active');
+            }
         }
 
         // Логика кнопки шанса
         function getChance() {
             const result = document.getElementById('chance-result');
             result.style.color = '#a29bfe';
-            re
-sult.innerHTML = "Подключение к базе данных...";
+            result.innerHTML = "Подключение к базе данных...";
 
             setTimeout(() => {
                 const isElite = Math.random() < 0.15;
