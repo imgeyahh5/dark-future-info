@@ -123,8 +123,7 @@
             animation: fadeIn 0.4s ease;
         }
 
-        /* Sub-nav
-igation for Rules */
+        /* Sub-navigation for Rules */
         .sub-nav {
             display: flex;
             flex-wrap: wrap;
@@ -139,7 +138,8 @@ igation for Rules */
             border: 1px solid #ff007f !important;
             color: #ff007f !important;
             padding: 10px 20px;
-            font-size: 0.9rem;
+            font-size: 0.9r
+em;
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
@@ -230,6 +230,32 @@ igation for Rules */
             color: #ff007f;
         }
 
+        /* Стили для Инструкции Вступления */
+        .guide-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .guide-step {
+            background: #111025;
+            border-left: 3px solid #ff007f;
+            padding: 18px 20px;
+            border-radius: 0 6px 6px 0;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .guide-step span {
+            color: #00ffcc;
+            font-family: monospace;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
         /* Таблица ролей */
         .roles-table {
             width: 100%;
@@ -276,15 +302,14 @@ igation for Rules */
 
         .roles-table tr.owner-row td strong {
             color: #00ffcc !important;
-            text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
         }
 
         /* Admin Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            ga
-p: 20px;
+            gap: 20px;
             margin-top: 20px;
         }
 
@@ -442,10 +467,10 @@ p: 20px;
     <!-- Navigation -->
     <nav>
         <div class="nav-row row-1">
-            <button id="btn-home" class="nav-btn" onclick="switchMainTab('home', 'btn-home')">Главная</button>
+            <button id="btn-home"
+class="nav-btn" onclick="switchMainTab('home', 'btn-home')">Главная</button>
             <button id="btn-rules" class="nav-btn" onclick="switchMainTab('rules', 'btn-rules')">Правила</button>
-            <button id="btn-s
-taff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Администрация</button>
+            <button id="btn-staff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Администрация</button>
             <button id="btn-roles" class="nav-btn" onclick="switchMainTab('roles', 'btn-roles')">Роли</button>
         </div>
         <div class="nav-row row-2">
@@ -515,11 +540,11 @@ taff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Админи
                     <span class="rule-num">3.2.</span> Рест возможен с субботы до среды.
                 </div>
                 <div class="rule-item">
-                    <span class="rule-num">3.3.</span> Норма — 130 сообщений в неделю. Неактив 7 дней — <strong>бан</strong>.
+                    <span clas
+s="rule-num">3.3.</span> Норма — 130 сообщений в неделю. Неактив 7 дней — <strong>бан</strong>.
                 </div>
                 <div class="rule-item">
-                    <span class="rule-num">3.4.</span> Чистка
-проводится по субботам в 22:00 по КЗ.
+                    <span class="rule-num">3.4.</span> Чистка проводится по субботам в 22:00 по КЗ.
                 </div>
                 <div class="rule-item">
                     <span class="rule-num">3.5.</span> Чистку проводит владелец (ВЛД).
@@ -608,14 +633,14 @@ taff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Админи
                         <td><strong>Бонд, Аня</strong></td>
                     </tr>
                     <tr>
-                        <td><span>Энгри бердс</span></td>
+                        <td><span>Энгри берд
+
+с</span></td>
                         <td><strong>Миньон свинья</strong></td>
                     </tr>
                     <tr>
                         <td><span>Железо комбинат</span></td>
-                        <td><
-
-strong>Арматура</strong></td>
+                        <td><strong>Арматура</strong></td>
                     </tr>
                     <tr>
                         <td><span>Одинокий рокер</span></td>
@@ -700,17 +725,26 @@ strong>Арматура</strong></td>
             <a href="https://www.tiktok.com/@dark_future_flood430" target="_blank" class="tt-link">Открыть TikTok Аккаунт</a>
         </div>
 
-        <!-- TAB 7: GUIDE -->
-        <div id="guide" class="tab-content">
-            <h2>Инструкция по интеграции во флуд</h2>
-            <p>Как быстро стать полноценным жителем Dark Future Flood:</p>
-            <ol style="line-height: 1.8;">
-                <li>Перейди по ссылке-приглашению (будет д
-обавлена позже).</li>
-                <li>Пройди верификацию у бота, если она включена.</li>
-                <li>Заполни анкету в чате по схеме знакомства.</li>
-                <li>Начни общаться, соблюдая правила. Заслужи уважение, чтобы повысить свой status до Элиты!</li>
-            </ol>
+        <!-- TAB 7: GUIDE (ВСТУПЛЕНИЕ) -->
+        <div id="guide" class="tab-content
+">
+            <h2>Инструкция для вступления во флуд 🐾</h2>
+            <p>Чтобы стать частью нашей кибер-семьи, выполни эти простые шаги:</p>
+            
+            <div class="guide-list">
+                <div class="guide-step">
+                    <span>1.</span> Пишем ВЛД/СОВ.ВЛД
+                </div>
+                <div class="guide-step">
+                    <span>2.</span> Пишем свою роль/перс
+                </div>
+                <div class="guide-step">
+                    <span>3.</span> Конечно же нам нужно знать откуда ваша роль/перс, так что и его тоже пишем 😘
+                </div>
+                <div class="guide-step" style="border-left-color: #00ffcc;">
+                    <span>4.</span> Возрастное ограничение 12+
+                </div>
+            </div>
         </div>
 
     </div>
@@ -745,7 +779,6 @@ strong>Арматура</strong></td>
             }
 
             // БЕЗОПАСНЫЙ ЗАПУСК ДЕФОЛТНЫХ ПРАВИЛ
-            // Если мы переключились на правила, принудительно открываем первую подвкладку правил
             if (targetTabId === 'rules') {
                 switchSubTab('rules-conflicts', 'sub-btn-conflicts');
             }
