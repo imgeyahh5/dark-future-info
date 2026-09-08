@@ -138,11 +138,11 @@
             color: #ff007f !important;
             padding: 10px 20px;
             font-size: 0.9rem;
-            font-weight: bold;
+            font-weigh
+t: bold;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.2s e
-ase;
+            transition: all 0.2s ease;
             flex: 1;
             min-width: 150px;
             text-align: center;
@@ -301,12 +301,10 @@ ase;
         .co-card h3 {
             color: #fff;
         }
-
-        .card p {
+.card p {
             margin: 0 0 15px 0;
             color: #a29bfe;
-            font-family: monospac
-e;
+            font-family: monospace;
             font-size: 1rem;
         }
 
@@ -433,9 +431,10 @@ e;
             <p>Здесь мы общаемся, угараем, делимся мемами и строим планы по захвату виртуального мира.</p>
             
             <div class="chance-box">
-                <p style="margin-top: 0;">Узнай свой шанс попасть в элиту DFF:</p>
+                <p style="margin-top: 0;">Узнай свой шанс попасть в элит
+у DFF:</p>
                 <button class="btn-chance" onclick="getChance()">Пройти тест</button>
-<div id="chance-result"></div>
+                <div id="chance-result"></div>
             </div>
         </div>
 
@@ -506,12 +505,13 @@ e;
                 <div class="rule-item">
                     <span class="rule-num">4.4.</span> Обсуждение религии разрешено только в уважительном формате.
                 </div>
-            </div>
+            <
+/div>
         </div>
 
         <!-- TAB 3: STAFF -->
         <div id="staff" class="tab-content">
-<h2>Администрация DFF</h2>
+            <h2>Администрация DFF</h2>
             <p>Высший сектор управления. Кликни на карточку, чтобы связаться с админом в TG:</p>
             
             <div class="grid">
@@ -554,7 +554,7 @@ e;
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Твоя роль с новой пометкой -->
+                    <!-- Твоя роль -->
                     <tr class="owner-row">
                         <td><span>The Coffin of Andy and Leyley</span></td>
                         <td><strong>Эндрю [Маркетолог]</strong></td>
@@ -607,10 +607,10 @@ e;
                         <td><span>Блич</span></td>
                         <td><strong>Орихимэ</strong></td>
                     </tr>
-                    <tr>
-                        <td><span>Президенты</span></td>
 
-<td><strong>Владимир Зеленский</strong></td>
+<tr>
+                        <td><span>Президенты</span></td>
+                        <td><strong>Владимир Зеленский</strong></td>
                     </tr>
                     <tr>
                         <td><span>Тоннель в лето, выход прощаний</span></td>
@@ -662,53 +662,58 @@ e;
     </div>
 
     <script>
-        // Main Tab Switcher
+        // ЖЕЛЕЗОБЕТОННЫЙ СКРИПТ ПЕРЕКЛЮЧЕНИЯ
         function switchMainTab(targetTabId, clickedButtonId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
+            // Скрываем вообще все вкладки
+            var contents = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
 
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
+            // Убираем active у всех кнопок навигации
+            var buttons = document.getElementsByClassName('nav-btn');
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove('active');
+            }
 
+            // Активируем нужную вкладку и кнопку
             document.getElementById(targetTabId).classList.add('active');
             document.getElementById(clickedButtonId).classList.add('active');
         }
 
-        // Sub Tab Switcher for Rules
         function switchSubTab(targetSubId, clickedSubButtonId) {
-            const rulesContents = document.querySelectorAll('.rules-content');
-            rulesContents.forEach(content => {
-                content.classList.remove('active');
-            });
+            // Скрываем все внутренние вкладки правил
+            var rulesContents = document.getElementsByClassName('rules-content');
+            for (var k = 0; k < rulesContents.length; k++) {
+                rulesContents[k].classList.remove('active');
+            }
 
-            const subButtons = document.querySelectorAll('.sub-btn');
-            subButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
+            // Убираем active у подкнопок
+            var subButtons = document.getElementsByClassName('sub-btn');
+            for (var l = 0; l < subButtons.length; l++) {
+                subButtons[l].classList.remove('active');
+            }
 
+            // Включаем нужные правила
             document.getElementById(targetSubId).classList.add('active');
             document.getElementById(clickedSubButtonId).classList.add('active');
         }
 
-        // Chance logic
+        // Логика кнопки шанса
         function getChance() {
             const result = document.getElementById('chance-result');
             result.style.color = '#a29bfe';
-            result.innerHTML = "Подключение к базе данных...";
+            re
+sult.innerHTML = "Подключение к базе данных...";
 
             setTimeout(() => {
                 const isElite = Math.random() < 0.15;
                 if (isElite) {
                     result.style.color = '#00ffcc';
-                    result.innerHTML = "ВНИМАНИЕ! Твой шанс попасть в DFF: 0.0000001%. Ты абсолютный Гигачад!";
+                    result.innerHTML = "ВНИМАНИЕ! Твой шанс попасть в DFF: 0.0000001%. Ты абсолютный Повелитель Маркетинга!";
                 } else {
                     result.style.color = '#ff4d4d';
-                    result.innerHTML = "
-Твой шанс попасть во флуд: 99.9%. Обычный нищий ноунейм.";
+                    result.innerHTML = "Твой шанс попасть во флуд: 99.9%. Обычный нищий ноунейм.";
                 }
             }, 800);
         }
