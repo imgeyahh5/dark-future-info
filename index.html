@@ -132,11 +132,12 @@
             padding-bottom: 15px;
         }
 
-        .sub-btn {
+        .sub-
+btn {
             background: #080714 !important;
             border: 1px solid #ff007f !important;
             color: #ff007f !important;
-padding: 10px 20px;
+            padding: 10px 20px;
             font-size: 0.9rem;
             font-weight: bold;
             border-radius: 4px;
@@ -198,6 +199,44 @@ padding: 10px 20px;
             font-size: 1.8rem;
         }
 
+        /* Таблица ролей */
+        .roles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #080714;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1a1835;
+        }
+
+        .roles-table th, .roles-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #1a1835;
+        }
+
+        .roles-table th {
+            background-color: #111025;
+            color: #00ffcc;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .roles-table tr:hover {
+            background-color: #12102e;
+        }
+
+        .roles-table td strong {
+            color: #ff007f;
+        }
+
+        .roles-table td span {
+            color: #a29bfe;
+            font-family: monospace;
+        }
+
         /* Admin Cards */
         .grid {
             display: grid;
@@ -256,7 +295,8 @@ padding: 10px 20px;
             margin: 0 0 15px 0;
             color: #a29bfe;
             font-family: monospace;
-            font-size: 1rem;
+            font-size:
+1rem;
         }
 
         .card-btn {
@@ -300,8 +340,7 @@ padding: 10px 20px;
             padding: 20px;
             background: #080711;
             border-radius: 8px;
-            border: 1
-px dashed #6c5ce7;
+            border: 1px dashed #6c5ce7;
         }
 
         .btn-chance {
@@ -385,7 +424,8 @@ px dashed #6c5ce7;
             <div class="chance-box">
                 <p style="margin-top: 0;">Узнай свой шанс попасть в элиту DFF:</p>
                 <button class="btn-chance" onclick="getChance()">Пройти тест</button>
-                <div id="chance-result"></div>
+                <div id="chance-
+result"></div>
             </div>
         </div>
 
@@ -403,8 +443,7 @@ px dashed #6c5ce7;
 
             <div id="rules-conflicts" class="rules-content active">
                 <div class="rule-item">
-                    <span class="rule-num">1.1.</span> Зап
-рещено провоцировать конфликты и проявлять личную неприязнь.
+                    <span class="rule-num">1.1.</span> Запрещено провоцировать конфликты и проявлять личную неприязнь.
                 </div>
                 <div class="rule-item">
                     <span class="rule-num">1.2.</span> В случае конфликта обращайтесь к администрации.
@@ -460,36 +499,31 @@ px dashed #6c5ce7;
             </div>
         </div>
 
-        <!-- TAB 3: STAFF (ADMINISTRATION) -->
+        <!-- TAB 3: STAFF -->
         <div id="staff" class="tab-content">
-            <h2>Администрация DFF</h2>
+            <h2>Администрация DF
+F</h2>
             <p>Высший сектор управления. Кликни на карточку, чтобы связаться с админом в TG:</p>
             
             <div class="grid">
-                <!-- Владелец: Марин (ведет на @Zhxxxzq) -->
                 <a href="https://t.me/Zhxxxzq" target="_blank" class="card owner-card">
                     <h3>Марин</h3>
                     <p>[ ВЛАДЕЛЕЦ / ШЕФ ]</p>
                     <span class="card-btn">Написать</span>
                 </a>
 
-                <!-- Совладелец 1: Леви (ведет на @sosi_yb) -->
                 <a href="https://t.me/sosi_yb" target="_blank" class="card co-card">
                     <h3>Леви</h3>
                     <p>[ СОВ.ВЛАДЕЛЕЦ ]</p>
                     <span class="card-btn">Написать</span>
                 </a>
 
-                <!-- Совладелец 2: Денджи (ведет на @m5gthp) -->
                 <a href="https://t.me/m5gthp" target="_blank" class="card co-card">
                     <h3>Денджи</h3>
                     <p>[ СОВ.ВЛАДЕЛЕЦ ]</p>
-                    <span class="card-btn">На
-
-писать</span>
+                    <span class="card-btn">Написать</span>
                 </a>
 
-                <!-- Совладелец 3: Ай (ведет на @MKSRFU) -->
                 <a href="https://t.me/MKSRFU" target="_blank" class="card co-card">
                     <h3>Ай</h3>
                     <p>[ СОВ.ВЛАДЕЛЕЦ ]</p>
@@ -498,16 +532,53 @@ px dashed #6c5ce7;
             </div>
         </div>
 
-        <!-- TAB 4: ROLES -->
+        <!-- TAB 4: ROLES (ЗАНЯТЫЕ ВНЕШНОСТИ/ПЕРСОНАЖИ) -->
         <div id="roles" class="tab-content">
-            <h2>Иерархия Системы (Роли)</h2>
-            <p>Каждый юзер имеет свое значение в коде DFF. Вот основные роли:</p>
-            <ul>
-                <li><strong>System Creator</strong> — бог этой системы (Марк).</li>
-                <li><strong>Admin</strong> — карающая рука правосудия.</li>
-                <li><strong>Cyber Elite</strong> — самые активные и авторитетные челы чата.</li>
-                <li><strong>User</strong> — базовая единица общения.</li>
-            </ul>
+            <h2>Занятые внешности</h2>
+            <p>Список персонажей, которые уже забронированы участниками флуда:</p>
+            
+            <table class="roles-table">
+                <thead>
+                    <tr>
+                        <th>Фэндом / Источник</th>
+                        <th>Персонаж</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span>Cry of Fear</span></td>
+                        <td><strong>Саймон</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Китаянки</span></td>
+                        <td><strong>Луби</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Скалолаз</span></td>
+                        <td><strong>Мори Бунтаро</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Семья шпиона</span></td>
+                        <td><strong>Бонд, Аня</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Энгри бердс</span></td>
+                        <td><strong>Миньон свинья</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Железо комбинат</span></td>
+                        <td><strong>Арматура</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Одинокий рокер</span></td>
+                        <td><strong>Хитори Гото</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Сервамп</span></td>
+                        <td><strong>Хайд</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- TAB 5: ABOUT -->
@@ -531,7 +602,9 @@ px dashed #6c5ce7;
 
         <!-- TAB 7: GUIDE -->
         <div id="guide" class="tab-content">
-            <h2>Инструкция по интеграции во флуд</h2>
+            <h2>Инструкция по интеграции
+
+во флуд</h2>
             <p>Как быстро стать полноценным жителем Dark Future Flood:</p>
             <ol style="line-height: 1.8;">
                 <li>Перейди по ссылке-приглашению (будет добавлена позже).</li>
@@ -584,9 +657,7 @@ px dashed #6c5ce7;
 
             setTimeout(() => {
                 const isElite = Math.random() < 0.15;
-                if (
-
-isElite) {
+                if (isElite) {
                     result.style.color = '#00ffcc';
                     result.innerHTML = "ВНИМАНИЕ! Твой шанс попасть в DFF: 0.0000001%. Ты абсолютный Гигачад!";
                 } else {
