@@ -132,8 +132,7 @@
             padding-bottom: 15px;
         }
 
-        .sub-
-btn {
+        .sub-btn {
             background: #080714 !important;
             border: 1px solid #ff007f !important;
             color: #ff007f !important;
@@ -142,7 +141,8 @@ btn {
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s e
+ase;
             flex: 1;
             min-width: 150px;
             text-align: center;
@@ -211,7 +211,7 @@ btn {
         }
 
         .roles-table th, .roles-table td {
-            padding: 15px;
+            padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #1a1835;
         }
@@ -235,6 +235,17 @@ btn {
         .roles-table td span {
             color: #a29bfe;
             font-family: monospace;
+        }
+
+        /* Выделение роли маркетолога (Эндрю) */
+        .roles-table tr.owner-row {
+            background-color: rgba(0, 255, 204, 0.05);
+            border-left: 3px solid #00ffcc;
+        }
+
+        .roles-table tr.owner-row td strong {
+            color: #00ffcc !important;
+            text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
         }
 
         /* Admin Cards */
@@ -294,9 +305,9 @@ btn {
         .card p {
             margin: 0 0 15px 0;
             color: #a29bfe;
-            font-family: monospace;
-            font-size:
-1rem;
+            font-family: monospac
+e;
+            font-size: 1rem;
         }
 
         .card-btn {
@@ -424,8 +435,7 @@ btn {
             <div class="chance-box">
                 <p style="margin-top: 0;">Узнай свой шанс попасть в элиту DFF:</p>
                 <button class="btn-chance" onclick="getChance()">Пройти тест</button>
-                <div id="chance-
-result"></div>
+<div id="chance-result"></div>
             </div>
         </div>
 
@@ -501,8 +511,7 @@ result"></div>
 
         <!-- TAB 3: STAFF -->
         <div id="staff" class="tab-content">
-            <h2>Администрация DF
-F</h2>
+<h2>Администрация DFF</h2>
             <p>Высший сектор управления. Кликни на карточку, чтобы связаться с админом в TG:</p>
             
             <div class="grid">
@@ -545,6 +554,11 @@ F</h2>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Твоя роль с новой пометкой -->
+                    <tr class="owner-row">
+                        <td><span>The Coffin of Andy and Leyley</span></td>
+                        <td><strong>Эндрю [Маркетолог]</strong></td>
+                    </tr>
                     <tr>
                         <td><span>Cry of Fear</span></td>
                         <td><strong>Саймон</strong></td>
@@ -577,6 +591,39 @@ F</h2>
                         <td><span>Сервамп</span></td>
                         <td><strong>Хайд</strong></td>
                     </tr>
+                    <tr>
+                        <td><span>Темный дворецкий</span></td>
+                        <td><strong>Себастьян Михаэлис</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Звёздное дитя</span></td>
+                        <td><strong>Хошино Ай</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Шампанское и розы</span></td>
+                        <td><strong>Цезарь</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Блич</span></td>
+                        <td><strong>Орихимэ</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Президенты</span></td>
+
+<td><strong>Владимир Зеленский</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Тоннель в лето, выход прощаний</span></td>
+                        <td><strong>Каору Тоно</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Монолог фармацевта</span></td>
+                        <td><strong>Mao Mao</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span>Stray kids</span></td>
+                        <td><strong>Ли Минхо</strong></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -602,9 +649,7 @@ F</h2>
 
         <!-- TAB 7: GUIDE -->
         <div id="guide" class="tab-content">
-            <h2>Инструкция по интеграции
-
-во флуд</h2>
+            <h2>Инструкция по интеграции во флуд</h2>
             <p>Как быстро стать полноценным жителем Dark Future Flood:</p>
             <ol style="line-height: 1.8;">
                 <li>Перейди по ссылке-приглашению (будет добавлена позже).</li>
@@ -662,7 +707,8 @@ F</h2>
                     result.innerHTML = "ВНИМАНИЕ! Твой шанс попасть в DFF: 0.0000001%. Ты абсолютный Гигачад!";
                 } else {
                     result.style.color = '#ff4d4d';
-                    result.innerHTML = "Твой шанс попасть во флуд: 99.9%. Обычный нищий ноунейм.";
+                    result.innerHTML = "
+Твой шанс попасть во флуд: 99.9%. Обычный нищий ноунейм.";
                 }
             }, 800);
         }
