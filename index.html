@@ -113,18 +113,18 @@
             margin-bottom: 50px;
         }
 
-        /* Вкладки по умолчанию скрыты */
+        /* Вкладки по умолчанию скрыты в CSS */
         .tab-content {
             display: none;
         }
 
         /* Анимация появления */
-        .tab-
-fade-in {
+        .tab-fade-in {
             animation: fadeIn 0.4s ease;
         }
 
-        /* Sub-navigation for Rules */
+        /* Sub-nav
+igation for Rules */
         .sub-nav {
             display: flex;
             flex-wrap: wrap;
@@ -282,8 +282,9 @@ fade-in {
         /* Admin Cards */
         .grid {
             display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            ga
+p: 20px;
             margin-top: 20px;
         }
 
@@ -442,9 +443,9 @@ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     <nav>
         <div class="nav-row row-1">
             <button id="btn-home" class="nav-btn" onclick="switchMainTab('home', 'btn-home')">Главная</button>
-            <button id="btn-rules" class="nav-btn" onclick="swi
-tchMainTab('rules', 'btn-rules')">Правила</button>
-            <button id="btn-staff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Администрация</button>
+            <button id="btn-rules" class="nav-btn" onclick="switchMainTab('rules', 'btn-rules')">Правила</button>
+            <button id="btn-s
+taff" class="nav-btn" onclick="switchMainTab('staff', 'btn-staff')">Администрация</button>
             <button id="btn-roles" class="nav-btn" onclick="switchMainTab('roles', 'btn-roles')">Роли</button>
         </div>
         <div class="nav-row row-2">
@@ -516,9 +517,9 @@ tchMainTab('rules', 'btn-rules')">Правила</button>
                 <div class="rule-item">
                     <span class="rule-num">3.3.</span> Норма — 130 сообщений в неделю. Неактив 7 дней — <strong>бан</strong>.
                 </div>
-                <div
-class="rule-item">
-                    <span class="rule-num">3.4.</span> Чистка проводится по субботам в 22:00 по КЗ.
+                <div class="rule-item">
+                    <span class="rule-num">3.4.</span> Чистка
+проводится по субботам в 22:00 по КЗ.
                 </div>
                 <div class="rule-item">
                     <span class="rule-num">3.5.</span> Чистку проводит владелец (ВЛД).
@@ -611,8 +612,10 @@ class="rule-item">
                         <td><strong>Миньон свинья</strong></td>
                     </tr>
                     <tr>
-<td><span>Железо комбинат</span></td>
-                        <td><strong>Арматура</strong></td>
+                        <td><span>Железо комбинат</span></td>
+                        <td><
+
+strong>Арматура</strong></td>
                     </tr>
                     <tr>
                         <td><span>Одинокий рокер</span></td>
@@ -701,9 +704,9 @@ class="rule-item">
         <div id="guide" class="tab-content">
             <h2>Инструкция по интеграции во флуд</h2>
             <p>Как быстро стать полноценным жителем Dark Future Flood:</p>
-            <ol style
-="line-height: 1.8;">
-                <li>Перейди по ссылке-приглашению (будет добавлена позже).</li>
+            <ol style="line-height: 1.8;">
+                <li>Перейди по ссылке-приглашению (будет д
+обавлена позже).</li>
                 <li>Пройди верификацию у бота, если она включена.</li>
                 <li>Заполни анкету в чате по схеме знакомства.</li>
                 <li>Начни общаться, соблюдая правила. Заслужи уважение, чтобы повысить свой status до Элиты!</li>
@@ -713,34 +716,38 @@ class="rule-item">
     </div>
 
     <script>
-        // ЖЕЛЕЗОБЕТОННЫЙ ПЕРЕКЛЮЧАТЕЛЬ СТИЛЕЙ И КЛАССОВ
+        // БЕЗОПАСНЫЙ И НАДЕЖНЫЙ ПЕРЕКЛЮЧАТЕЛЬ ВКЛАДОК
         function switchMainTab(targetTabId, clickedButtonId) {
-            // 1. Получаем все блоки контента
+            // 1. Прячем все вкладки
             var contents = document.getElementsByClassName('tab-content');
-            
-            // Скрываем абсолютно каждый из них
             for (var i = 0; i < contents.length; i++) {
                 contents[i].style.display = 'none';
                 contents[i].classList.remove('tab-fade-in');
             }
 
-            // 2. Снимаем статус 'active' со всех кнопок меню
+            // 2. Убираем подсветку кнопок
             var buttons = document.getElementsByClassName('nav-btn');
             for (var j = 0; j < buttons.length; j++) {
                 buttons[j].classList.remove('active');
             }
 
-            // 3. Открываем строго выбранную вкладку
+            // 3. Показываем нужную вкладку, если она существует в HTML
             var targetTab = document.getElementById(targetTabId);
             if (targetTab) {
                 targetTab.style.display = 'block';
                 targetTab.classList.add('tab-fade-in');
             }
 
-            // 4. Добавляем класс 'active' нажатой кнопке
+            // 4. Подсвечиваем нажатую кнопку
             var targetBtn = document.getElementById(clickedButtonId);
             if (targetBtn) {
                 targetBtn.classList.add('active');
+            }
+
+            // БЕЗОПАСНЫЙ ЗАПУСК ДЕФОЛТНЫХ ПРАВИЛ
+            // Если мы переключились на правила, принудительно открываем первую подвкладку правил
+            if (targetTabId === 'rules') {
+                switchSubTab('rules-conflicts', 'sub-btn-conflicts');
             }
         }
 
@@ -787,9 +794,8 @@ class="rule-item">
 
         // Запуск при старте страницы
         window.onload = function() {
-            // Принудительно и безболезненно активируем вкладку 'Главная'
+            // Принудительно открываем только Главную!
             switchMainTab('home', 'btn-home');
-            switchSubTab('rules-conflicts', 'sub-btn-conflicts');
         };
     </script>
 
